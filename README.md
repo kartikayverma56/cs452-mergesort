@@ -111,15 +111,3 @@ that fail to compile will not being graded.
     byte will result in a zero for this section. There is no partial
     credit for this section.
 
-## Submission
-
-You can make as many commits to your git repository as you want. When
-I grade I will use the top commit as what you are submitting for
-credit.
-
-Pushing your code for grading
-
-- git add lab.c
-- git add mytests.c
-- git commit -am "Finished the lab"
-- git push
