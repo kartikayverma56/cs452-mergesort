@@ -101,7 +101,7 @@ that fail to compile will not being graded.
   - [4 pts] Code is formatted correctly and follows a consistent style
   - [2 pts] Code is commented when necessary
   - [4 pts] There is more than just the main function in **mytests.c**
-- [15 pts] Compiler warnings **ALL files**
+- [20 pts] Compiler warnings **ALL files**
   - Each compiler warning will result in a 3 point deduction.
   - You are not allowed to suppress warnings
   - You must build with the flags ```-Wall -Wextra -Wpointer-arith -Wstrict-prototypes -std=gnu89```
@@ -110,7 +110,6 @@ that fail to compile will not being graded.
   - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
     byte will result in a zero for this section. There is no partial
     credit for this section.
-- [5 pts] In the file lab.c you updated the header on lines 2,3, and 4
 
 ## Submission
 
