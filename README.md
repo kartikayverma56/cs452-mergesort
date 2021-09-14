@@ -70,7 +70,10 @@ performs better than the serial version.
 HINT: You can make the chart using any tool want (excel, google docs,
 etc.) as long as you can create a pdf as your final
 deliverable. Look in the folder example for what your chart should
-look like.
+look like. Also, it may be useful to add an option to mytests.c to output 
+timing results speedup calculation in a CSV format.  This will make it 
+significantly easier to generate the required data for the implementation 
+analysis report.
 
 ## Hints
 
@@ -80,13 +83,8 @@ look like.
 - You can stop the recursion using the number of levels in the sorting
   tree or by number of threads. It is simpler to stop it by the number
   of levels.
-- It may be useful to add an option to mytests.c to output timing
-  results speedup calculation in a CSV format.  This will make it
-  significantly easier to generate the required data for the
-  implementation analysis report.
 
-
-## Grading Rubric for Undergraduate Students
+## Grading Rubric (for Undergraduate students)
 
 All grading will be executed on onyx.boisestate.edu. Submissions
 that fail to compile will not being graded.
@@ -108,7 +106,7 @@ that fail to compile will not being graded.
     byte will result in a zero for this section. There is no partial
     credit for this section.
 
-## Grading Rubric for Graduate Students
+## Grading Rubric (for Graduate students)
 - [15 pts] Make concurrent
   - [5 pts] You got a speedup of at least 2 with 4 or more cores 
   - [5 pts] mytests.c accepts a number of threads as a command line argument
