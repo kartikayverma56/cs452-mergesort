@@ -22,7 +22,7 @@ Read these chapters carefully in order to prepare yourself for this project.
 - [Intro to Threads](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf)
 - [Threads API](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-api.pdf)
 
-## Make Concurrent (ABET outcome 1)
+## Make Concurrent
 
 Convert the serial mergesort code to use multiple threads using the
 pthread library. Your program should limit the number of threads it
@@ -43,7 +43,7 @@ command line argument. The updated version of mytests should include
 timing results for both the serial and parallel versions of merge
 sort.
 
-## Implementation Analysis (ABET outcome 6)
+## Implementation Analysis (Graduate students only)
 
 Create a file named speedup.pdf (in the root directory) that analyses
 the following two aspects of your mergesort solution.
@@ -86,17 +86,15 @@ look like.
   implementation analysis report.
 
 
-## Grading Rubric
+## Grading Rubric for Undergraduate Students
 
 All grading will be executed on onyx.boisestate.edu. Submissions
 that fail to compile will not being graded.
 
-- [15 pts] Make concurrent (ABET outcome 1)
-  - [5 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [5 pts] mytests.c accepts a number of threads as a command line argument
-  - [5 pts] Correctly creates new threads
-- [15 pts] Implementation analysis (speedup.pdf ABET outcome 6)
-  - Score will reflect the quality of the analysis.
+- [30 pts] Make concurrent
+  - [10 pts] You got a speedup of at least 2 with 4 or more cores 
+  - [10 pts] mytests.c accepts a number of threads as a command line argument
+  - [10 pts] Correctly creates new threads
 - [5 pts] Code quality for **lab.c**
   - [2.5 pts] Code is formatted correctly and follows a consistent style
   - [2.5 pts] Code is commented when necessary
@@ -110,3 +108,22 @@ that fail to compile will not being graded.
     byte will result in a zero for this section. There is no partial
     credit for this section.
 
+## Grading Rubric for Graduate Students
+- [15 pts] Make concurrent
+  - [5 pts] You got a speedup of at least 2 with 4 or more cores 
+  - [5 pts] mytests.c accepts a number of threads as a command line argument
+  - [5 pts] Correctly creates new threads
+- [15 pts] Implementation analysis (speedup.pdf)
+  - Score will reflect the quality of the analysis.
+- [5 pts] Code quality for **lab.c**
+  - [2.5 pts] Code is formatted correctly and follows a consistent style
+  - [2.5 pts] Code is commented when necessary
+- [10 pts] Compiler warnings **ALL files**
+  - Each compiler warning will result in a 3 point deduction.
+  - You are not allowed to suppress warnings
+  - You must build with the flags ```-Wall -Wextra -Wpointer-arith -Wstrict-prototypes -std=gnu89```
+- [5 pts] Valgrind reports no memory leaks or read/write errors
+  - As reported by **runval.sh**
+  - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
+    byte will result in a zero for this section. There is no partial
+    credit for this section.
