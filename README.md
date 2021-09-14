@@ -51,7 +51,7 @@ the following two aspects of your mergesort solution.
 **Efficiency** - Analyse the thread efficiency by examining how the
 threaded implementation’s performance compares to the single threaded
 implementation. Include a chart showing the speedups obtained with
-varying number of threads (from 1 to 8). The speedups should relative
+varying number of threads (from 1 to 8). The speedups should be relative
 to the serial mergesort. Please also note the number of cores on the
 system that you are testing.  All tests cases should be run with 100
 million elements. Please discuss whether the speedup increases
