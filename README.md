@@ -15,7 +15,7 @@ use directly.
 - Explore the pthread library
 
 
-## Book references
+## Book References
 
 Read these chapters carefully in order to prepare yourself for this project.
 
