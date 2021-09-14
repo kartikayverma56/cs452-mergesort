@@ -88,24 +88,23 @@ look like.
 
 ## Grading Rubric
 
-All grading will be executed on onyx.boisestate.edu Submissions
+All grading will be executed on onyx.boisestate.edu. Submissions
 that fail to compile will not being graded.
 
-- [30 pts] Make concurrent (ABET outcome 1)
-  - [10 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [10 pts] mytests.c accepts a number of threads as a command line argument
-  - [10 pts] Correctly creates new threads
-- [30 pts] Implementation analysis (speedup.pdf ABET outcome 6)
+- [15 pts] Make concurrent (ABET outcome 1)
+  - [5 pts] You got a speedup of at least 2 with 4 or more cores 
+  - [5 pts] mytests.c accepts a number of threads as a command line argument
+  - [5 pts] Correctly creates new threads
+- [15 pts] Implementation analysis (speedup.pdf ABET outcome 6)
   - Score will reflect the quality of the analysis.
-- [10 pts] Code quality for **lab.c**
-  - [4 pts] Code is formatted correctly and follows a consistent style
-  - [2 pts] Code is commented when necessary
-  - [4 pts] There is more than just the main function in **mytests.c**
-- [20 pts] Compiler warnings **ALL files**
+- [5 pts] Code quality for **lab.c**
+  - [2.5 pts] Code is formatted correctly and follows a consistent style
+  - [2.5 pts] Code is commented when necessary
+- [10 pts] Compiler warnings **ALL files**
   - Each compiler warning will result in a 3 point deduction.
   - You are not allowed to suppress warnings
   - You must build with the flags ```-Wall -Wextra -Wpointer-arith -Wstrict-prototypes -std=gnu89```
-- [10 pts] Valgrind reports no memory leaks or read/write errors
+- [5 pts] Valgrind reports no memory leaks or read/write errors
   - As reported by **runval.sh**
   - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
     byte will result in a zero for this section. There is no partial
