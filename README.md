@@ -91,7 +91,7 @@ that fail to compile will not being graded.
 
 - [30 pts] Make concurrent
   - [10 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [10 pts] mytests.c accepts a number of threads as a command line argument
+  - [10 pts] mytests.c accepts a number of threads (or a number of levels) as a command line argument
   - [10 pts] Correctly creates new threads
 - [5 pts] Code quality for **lab.c**
   - [2.5 pts] Code is formatted correctly and follows a consistent style
@@ -109,7 +109,7 @@ that fail to compile will not being graded.
 ## Grading Rubric (for Graduate students)
 - [15 pts] Make concurrent
   - [5 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [5 pts] mytests.c accepts a number of threads as a command line argument
+  - [5 pts] mytests.c accepts a number of threads (or a number of levels) as a command line argument
   - [5 pts] Correctly creates new threads
 - [15 pts] Implementation analysis (speedup.pdf)
   - Score will reflect the quality of the analysis.
