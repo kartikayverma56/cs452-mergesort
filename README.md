@@ -38,7 +38,7 @@ branches to get a speedup of 2. Your code MUST work with a variable
 number of threads!  Simply getting a speedup of 2 does not indicate
 that you did the assignment correctly.
 
-You will need to update mytests.c to accept a number of threads as a
+You will need to update mytests.c to accept a number of threads (or a number of levels) as a
 command line argument. The updated version of mytests should include
 timing results for both the serial and parallel versions of merge
 sort.
