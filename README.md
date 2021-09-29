@@ -107,6 +107,8 @@ that fail to compile will not being graded.
     credit for this section.
 
 ## Grading Rubric (for Graduate students)
+All grading will be executed on onyx.boisestate.edu. Submissions that fail to compile will not being graded.
+
 - [15 pts] Make concurrent
   - [5 pts] You got a speedup of at least 2 with 4 or more cores 
   - [5 pts] mytests.c accepts a number of threads (or a number of levels) as a command line argument
