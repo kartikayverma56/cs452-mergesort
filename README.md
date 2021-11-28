@@ -97,9 +97,6 @@ that fail to compile will not being graded.
   - [10 pts] You got a speedup of at least 2 with 4 or more cores 
   - [10 pts] mytests.c accepts a number of threads (or a number of levels) as a command line argument
   - [10 pts] Correctly creates new threads
-- [5 pts] Code quality for **lab.c**
-  - [2.5 pts] Code is formatted correctly and follows a consistent style
-  - [2.5 pts] Code is commented when necessary
 - [10 pts] Compiler warnings **ALL files**
   - Each compiler warning will result in a 3 point deduction.
   - You are not allowed to suppress warnings
@@ -109,6 +106,7 @@ that fail to compile will not being graded.
   - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
     byte will result in a zero for this section. There is no partial
     credit for this section.
+- [5 pts] Documentation: README.md file (replace this current README.md with a new one using the template on the course page)
 
 ## Grading Rubric (for Graduate students)
 All grading will be executed on onyx.boisestate.edu. Submissions that fail to compile will not being graded.
@@ -119,9 +117,6 @@ All grading will be executed on onyx.boisestate.edu. Submissions that fail to co
   - [5 pts] Correctly creates new threads
 - [15 pts] Implementation analysis (speedup.pdf)
   - Score will reflect the quality of the analysis.
-- [5 pts] Code quality for **lab.c**
-  - [2.5 pts] Code is formatted correctly and follows a consistent style
-  - [2.5 pts] Code is commented when necessary
 - [10 pts] Compiler warnings **ALL files**
   - Each compiler warning will result in a 3 point deduction.
   - You are not allowed to suppress warnings
@@ -131,3 +126,4 @@ All grading will be executed on onyx.boisestate.edu. Submissions that fail to co
   - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
     byte will result in a zero for this section. There is no partial
     credit for this section.
+- [5 pts] Documentation: README.md file (replace this current README.md with a new one using the template on the course page)
