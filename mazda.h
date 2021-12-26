@@ -1,5 +1,5 @@
-#ifndef __LAB_H
-#define __LAB_H
+#ifndef __MAZDA_H
+#define __MAZDA_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,4 +18,4 @@ const int INSERTION_SORT_THRESHOLD = 100; //based on trial and error
 #ifdef __cplusplus
 }
 #endif
-#endif //__LAB_H
+#endif //__MAZDA_H
