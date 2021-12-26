@@ -5,7 +5,7 @@
 #include <sys/time.h>  /* for gettimeofday system call */
 #include <unistd.h>
 #include <error.h>
-#include "lab.h"
+#include "mazda.h"
 
 // function prototypes
 int check_if_sorted(int A[], int n);

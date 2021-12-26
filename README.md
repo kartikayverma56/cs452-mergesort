@@ -38,8 +38,8 @@ branches to get a speedup of 2. Your code MUST work with a variable
 number of threads!  Simply getting a speedup of 2 does not indicate
 that you did the assignment correctly.
 
-You will need to update mazda-tests.c to accept a number of threads (or a number of levels) as a
-command line argument. The updated version of mazda-tests should show
+You will need to update test-mazda.c to accept a number of threads (or a number of levels) as a
+command line argument. The updated version of test-mazda should show
 timing results for the serial mergesort when the number of threads is 1 (or when the number of levels is 0),
 and show timing results for the parallel mergesort when the number of threads is larger than 1 (or when the number of levels is larger than 0).
 
@@ -70,7 +70,7 @@ performs better than the serial version.
 HINT: You can make the chart using any tool want (excel, google docs,
 etc.) as long as you can create a pdf as your final
 deliverable. Look in the folder example for what your chart should
-look like. Also, it may be useful to add an option to mazda-tests.c to output 
+look like. Also, it may be useful to add an option to test-mazda.c to output 
 timing results speedup calculation in a CSV format.  This will make it 
 significantly easier to generate the required data for the implementation 
 analysis report.
@@ -98,7 +98,7 @@ Submissions that fail to compile on onyx will not be graded.
 
 - [30 pts] Make concurrent
   - [10 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [10 pts] mazda-tests.c accepts a number of threads (or a number of levels) as a command line argument
+  - [10 pts] test-mazda.c accepts a number of threads (or a number of levels) as a command line argument
   - [10 pts] Correctly creates new threads
 - [10 pts] Compiler warnings **ALL files**
   - Each compiler warning will result in a 3 point deduction.
@@ -115,7 +115,7 @@ Submissions that fail to compile on onyx will not be graded.
 
 - [15 pts] Make concurrent
   - [5 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [5 pts] mazda-tests.c accepts a number of threads (or a number of levels) as a command line argument
+  - [5 pts] test-mazda.c accepts a number of threads (or a number of levels) as a command line argument
   - [5 pts] Correctly creates new threads
 - [15 pts] Implementation analysis (speedup.pdf)
   - Score will reflect the quality of the analysis.
