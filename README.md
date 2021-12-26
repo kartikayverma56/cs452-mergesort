@@ -39,9 +39,9 @@ number of threads!  Simply getting a speedup of 2 does not indicate
 that you did the assignment correctly.
 
 You will need to update mytests.c to accept a number of threads (or a number of levels) as a
-command line argument. The updated version of mytests should include
-timing results for both the serial and parallel versions of merge
-sort.
+command line argument. The updated version of mytests should show
+timing results for the serial mergesort when the number of threads is 1 (or when the number of levels is 0),
+and show timing results for the parallel mergesort when the number of threads is larger than 1 (or when the number of levels is larger than 0).
 
 ## Implementation Analysis (Graduate students only)
 
@@ -83,15 +83,18 @@ analysis report.
 - You can stop the recursion using the number of levels in the sorting
   tree or by number of threads. It is simpler to stop it by the number
   of levels.
+- You are recommended to do this: let child threads call pthread_exit() to exit.
+  parent thread itself doesn't need to call pthread_exit(). This is a recommendation
+  but is not a requirement, however, later on when you work on project 5,
+  you will see the vaule of doing this.
 
-## Due Date:  
+## Submission  
 
-23:59pm, September 30th, 2021.
+Due Date: 23:59pm, Feburary 8th, 2021. Late submissions will not be accepted/graded.
+All grading will be executed on onyx.boisestate.edu.
+Submissions that fail to compile on onyx will not be graded.
 
 ## Grading Rubric (for Undergraduate students)
-
-All grading will be executed on onyx.boisestate.edu. Submissions
-that fail to compile will not being graded.
 
 - [30 pts] Make concurrent
   - [10 pts] You got a speedup of at least 2 with 4 or more cores 
@@ -106,10 +109,9 @@ that fail to compile will not being graded.
   - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
     byte will result in a zero for this section. There is no partial
     credit for this section.
-- [5 pts] Documentation: README.md file (replace this current README.md with a new one using the template on the course page)
+- [5 pts] Documentation: README.md file (replace this current README.md with a new one using the template. Do not check in this current README.)
 
 ## Grading Rubric (for Graduate students)
-All grading will be executed on onyx.boisestate.edu. Submissions that fail to compile will not being graded.
 
 - [15 pts] Make concurrent
   - [5 pts] You got a speedup of at least 2 with 4 or more cores 
@@ -126,4 +128,4 @@ All grading will be executed on onyx.boisestate.edu. Submissions that fail to co
   - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
     byte will result in a zero for this section. There is no partial
     credit for this section.
-- [5 pts] Documentation: README.md file (replace this current README.md with a new one using the template on the course page)
+- [5 pts] Documentation: README.md file (replace this current README.md with a new one using the template. Do not check in this current README.)
