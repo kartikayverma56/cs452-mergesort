@@ -3,7 +3,7 @@
  * Email: janedoe@u.boisestate.edu
  * Github Username: jdoe
  */
-#include "lab.h"
+#include "mazda.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
