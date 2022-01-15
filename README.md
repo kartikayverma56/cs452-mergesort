@@ -85,12 +85,12 @@ analysis report.
   of levels.
 - You are recommended to do this: let child threads call pthread_exit() to exit.
   parent thread itself doesn't need to call pthread_exit(). This is a recommendation
-  but is not a requirement, however, later on when you work on project 5,
+  but is not a requirement, however, later on when you work on the Cadillac (threads library) project,
   you will see the vaule of doing this.
 
 ## Submission  
 
-Due Date: 23:59pm, Feburary 8th, 2021. Late submissions will not be accepted/graded.
+Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/graded.
 All grading will be executed on onyx.boisestate.edu.
 Submissions that fail to compile on onyx will not be graded.
 
@@ -129,3 +129,10 @@ Submissions that fail to compile on onyx will not be graded.
     byte will result in a zero for this section. There is no partial
     credit for this section.
 - [5 pts] Documentation: README.md file (replace this current README.md with a new one using the template. Do not check in this current README.)
+
+## Related Exercises
+
+For those who need more practice in C programming, you are recommended to solve these two problems using a merge sort algorithm.
+
+Leetcode Problem 912 - Sort an Array
+Leetcode Problem 148 - Sort List
