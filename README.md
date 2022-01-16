@@ -132,7 +132,8 @@ Submissions that fail to compile on onyx will not be graded.
 
 ## Related Exercises
 
-For those who need more practices in C programming, you are recommended to solve these two problems using the merge sort algorithm.
+For those who need more practices in C programming, you are recommended to solve these three problems using the merge sort algorithm.
 
+Leetcode Problem 88 - Merge Sorted Array<br/>
 Leetcode Problem 912 - Sort an Array<br/>
 Leetcode Problem 148 - Sort List
