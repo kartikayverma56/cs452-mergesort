@@ -32,6 +32,7 @@ with the agrgument _SC_CLK_TCK.
 */
 
 
+/* we do not really use this function anymore, but somehow we still keep it here. */
 float report_cpu_time(void)
 {
 	struct tms buffer;
@@ -42,7 +43,7 @@ float report_cpu_time(void)
 	return (cputime);
 }
 
-
+/* we do not really use this function anymore, but somehow we still keep it here. */
 float report_sys_time(void)
 {
 	struct tms buffer;
@@ -72,11 +73,10 @@ double getMilliSeconds(void)
 
 void generate_random_array(int A[], int n, int seed)
 {
-    int i;
-
+	int i;
 	srandom(seed);
-    for (i=0; i<n; i++)
-        A[i] = random()%RANGE;
+	for (i=0; i<n; i++)
+        	A[i] = random()%RANGE;
 }
 
 
