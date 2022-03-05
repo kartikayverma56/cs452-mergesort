@@ -170,7 +170,16 @@ Because at level 0, the main thread handles the entire array, whose size is n, t
 
 ## Expected Results
 
-When running test-mergesort, you are expected to see such a pattern:
+If you run test-mergesort before implementing anything, you will get:
+
+```console
+(base) [jidongxiao@onyx cs452-mergesort]$ ./test-mergesort 100 1 1234
+./test-mergesort: sorting failed!!!!
+(base) [jidongxiao@onyx cs452-mergesort]$ ./test-mergesort 100000000 1 1234
+./test-mergesort: sorting failed!!!!
+```
+
+The sorting fails because the starter code does not include any sorting code. Once your implementation is complete and you run test-mergesort, you are expected to see such a pattern:
 
 ```console
 (base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 0 1234
