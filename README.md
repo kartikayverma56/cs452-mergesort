@@ -29,6 +29,69 @@ Continue this same example, the following picture shows what your program flow s
 
 Several functions are used in the above picture. Some of them are API functions you can call, others are the functions you need to implement. Read the next few sections of this README to understand more details about these functions.
 
+## Starter Code
+
+The starter code looks like this:
+
+```console
+(base) [jidongxiao@onyx cs452-mergesort]$ ls
+example.png  flow.png  Makefile  mergesort.c  mergesort.h  README.md  README.template  runval.sh  test-mergesort.c
+```
+
+You will be modifying the mergesort.c file. You should not modify the mergesort.h file.
+
+A testing program is provided in the starter code, called test-mergesort.c. To run the test program, you just type make and run:
+
+```console
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 
+Usage: ./test-mergesort <input size> <cutoff level> <seed> 
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100 1 1234
+Sorting 100 elements took 0.00 seconds.
+```
+
+As you can see, this testing program takes 3 parameters. The first parameter is the size of the array, if you type 100, then the testing program will create an array with 100 random-generated elements. The second parameter is the cutoff value. The third parameter is a random seed, you can provide any number, with a different seed number, the testing program will create a different array. In the testing program, the size of the array is denoted as *n*, and the testing program will call your functions like this:
+
+```c
+	struct argument *arg=buildArgs(0, n-1, 0);
+	parallel_mergesort(arg);
+```
+
+In next section you will find out what these two functions should do.
+
+## Specification
+
+The testing program will show timing results for the single thread mergesort (also known as serial mergesort or sequential mergesort) when the number of levels is 0, and show timing results for the parallel mergesort when the number of levels is larger than 0. Compared to serial mergesort, your parallel mergesort must get a speedup of at least 2 on onyx. Use n = 100,000,000 elements for your testing.
+
+You are required to implement the following 4 functions:
+
+```c
+void mergesort(int left, int right);
+```
+
+This function does the mergesort, with one single thread. You should write this **mergesort**() function as a recursive function.
+
+```c
+void merge(int leftstart, int leftend, int rightstart, int rightend);
+```
+
+In a typical merge sort algorithm, the **mergesort**() function will eventually call **merge**(), which attempts to merge two already-sorted sub-arrays.
+
+```c
+void * parallel_mergesort(void *arg);
+```
+
+This **parallel_mergesort**() function calls **mergesort**() as its base case. You are highly recommended to write this **parallel_mergesort**() recursively, using the pthread library functions. Note: the term recursion in the context of pthread, is slightly different from the term recursion you usually see. In the above **mergesort**() function, you call **mergesort**(), that is the typical recursion scenario you see in other recursive programs. In your **parallel_mergesort**(), you do not call **parallel_mergesort**() directly, instead, you call **pthread_create**(), which will then call **parallel_mergesort**(). In other words, in **mergesort**(), you call **mergesort**() directly, in **parallel_mergesort**(), you call **parallel_mergesort** indirectly.
+
+**pthread_create**() will be explained in the next section.
+
+```c
+struct argument * buildArgs(int left, int right, int level);
+```
+
+The only reason we need this function, is because **pthread_create**() specifies that its **start_routine**() only allows one void \* type pointer, which means **parallel_mergesort**() will only accept one void \* type pointer, yet the information we want to pass is more than just a variable. Thus we can work around this by creating a struct variable and pass its address into **parallel_mergesort**(). That is the purpose of this **buildArgs** function, which basically prepares the argument for **parallel_mergesort**(). 
+
+The definition of *struct argument*, as well as the meaning of each of the parameter to **buildArgs**(), will be described later in this README.
+
 ## APIs
 
 I used the following APIs.
@@ -59,56 +122,6 @@ You may need to call **malloc**() to allocate memory in your **buildArgs**() fun
 
 You may have heard of **pthread_exit**(), do not use it for this assignment, otherwise valgrind will report memory blocks "still reachable" issues. valgrind has trouble to track variables used in **pthread_exit**(). In this assignment, instead of using **pthread_exit**(), you can just return NULL to exit your thread.
 
-## Starter Code
-
-The starter code looks like this:
-
-xxx
-
-You will be modifying the xxx.c file. You should not modify the xxx.h file.
-
-A testing program is provided in the starter code, called 
-
-To run the starter code, you just type make and run
-
-xxx
-
-This is how your code will be called by the test program:
-
-
-## Implementation: Make Concurrent
-
-You are required to implement the following 4 functions:
-
-```c
-void mergesort(int left, int right);
-```
-
-This function does the mergesort, with one single thread.
-
-```c
-void merge(int leftstart, int leftend, int rightstart, int rightend);
-```
-
-In a typical merge sort algorithm, the **mergesort**() function will eventually call **merge**(), which attempts to merge two already-sorted sub-arrays. You are highly recommended to write this **merge**() function as a recursive function.
-
-```c
-void * parallel_mergesort(void *arg);
-```
-
-This **parallel_mergesort**() function calls **mergesort**() as its base case. You are highly recommended to write this **parallel_mergesort**() recursively, using the pthread library functions. Note: the term recursion in the context of pthread, is slightly different from the term recursion you usually see. In the above **merge**() function, you call **merge**(), that is the typical recursion scenario you see in other recursive programs. In your **parallel_mergesort**(), you do not call **parallel_mergesort**() directly, instead, you call **pthread_create**(), which will then call **parallel_mergesort**(). In other words, in **merge**(), you call **merge**() directly, in **parallel_mergesort**(), you call **parallel_mergesort** indirectly.
-
-```c
-struct argument * buildArgs(int left, int right, int level);
-```
-
-The only reason we need this function, is because **pthread_create**() specifies that its **start_routine**() only allows one void \* type pointer, which means **parallel_mergesort**() only accept one void \* type pointer, yet the information we want to pass is more than just an address. Thus we can work around this by creating a struct variable and pass its address into **parallel_mergesort**(). That is the purpose of this **buildArgs** function, which basically prepares the argument for **parallel_mergesort**(). Eventually these two functions will be called like this:
-
-```c
-	struct argument *arg=buildArgs(0, n-1, 0);
-	parallel_mergesort(arg);
-```
-
 ## Global Variables and Pre-defined Data Structures
 
 The starter code defines the following global variables, in xxx.h. Once again, do not modify xxx.h.
@@ -138,22 +151,77 @@ struct argument {
     int level;
 };
 ```
+This is the argument we plan to pass to **parallel_mergesort**(). We call **buildArgs**() to build an instance of *struct argument*. In this struct, the field *left* represents the left index in the array, the *right* field represents the right index array. The field *level* represents the current level. To explain this better, let us once again use the following two lines as an example:
 
+```c
+	struct argument *arg=buildArgs(0, n-1, 0);
+	parallel_mergesort(arg);
+```
 
-You must get a speedup of at least 2 with 4 or more cores
-to get full credit on this project. Use n = 100,000,000 elements for
-your testing.
+These two lines will be called by the testing program. The testing program's **main**() function represents the main thread, which, as the above picture shows, is corresponding to the node at level 0 of the binary tree. If we compare the prototype of **buildArgs**(), which is showed below:
 
-The test program accepts a number of levels as a
-command line argument. The updated version of test-mazda should show
-timing results for the serial mergesort when the number of levels is 0,
-and show timing results for the parallel mergesort when the number of levels is larger than 0.
+```c
+struct argument * buildArgs(int left, int right, int level);
+```
 
-## Hints
+Because at level 0, the main thread handles the entire array, whose size is n, therefore the leftmost index is 0, and the rightmost index is n-1. Therefore we pass (0,n-1,0) to the function **buildArgs**(), which will use them to construct a *struct argument* variable and return its address, which will be then passed to **parallel_mergesort**().
 
-- You can stop the recursion using the number of levels in the sorting
-  tree or by number of threads. It is simpler to stop it by the number
-  of levels.
+## Expected Results
+
+When running test-mergesort, you are expected to see such a pattern:
+
+```console
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 0 1234
+Sorting 100000000 elements took 28.87 seconds.
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 1 1234
+Sorting 100000000 elements took 14.95 seconds.
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 2 1234
+Sorting 100000000 elements took 7.90 seconds.
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 3 1234
+Sorting 100000000 elements took 4.59 seconds.
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 4 1234
+Sorting 100000000 elements took 3.25 seconds.
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 5 1234
+Sorting 100000000 elements took 2.40 seconds.
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 6 1234
+Sorting 100000000 elements took 2.25 seconds.
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 7 1234
+Sorting 100000000 elements took 2.27 seconds.
+(base) [jidongxiao@onyx mergesort]$ ./test-mergesort 100000000 8 1234
+Sorting 100000000 elements took 2.33 seconds.
+```
+
+As you can see, as we increase the number of levels, we can see a clear performance gain. Once again, the requirement is: compared to serial mergesort (which is when the number of levels is 0), your parallel mergesort (which is when the number of levels is larger than 0) must get a speedup of at least 2 on onyx. Use n = 100,000,000 elements for your testing.
+
+You can also see, once the number of levels reaches 5, you will not get more performance gain. At that point, the number of threads is no longer the bottleneck of this program, and therefore increasing the number of levels, which will accordingly increase the number of threads, will not help much.
+
+## Extra Testing
+
+A bash script called *runval.sh* is provided to test memory leaks. The bash script utilizes a tool called valgrind to test if your memory is correctly released, if not, valgrind will report memory leaks. valgrind eventually will call test-mergesort, thus before running this script, you need to run *make* so as to compile test-mergesort.c and generate test-mergesort. Once it is generated, the expected results are like the following:
+
+```console
+(base) [jidongxiao@onyx mergesort]$ ./runval.sh 
+==2898313== Memcheck, a memory error detector
+==2898313== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2898313== Using Valgrind-3.17.0 and LibVEX; rerun with -h for copyright info
+==2898313== Command: ./test-mergesort 10000 1 1234
+==2898313== 
+Sorting 10000 elements took 0.13 seconds.
+==2898313== 
+==2898313== HEAP SUMMARY:
+==2898313==     in use at exit: 0 bytes in 0 blocks
+==2898313==   total heap usage: 12 allocs, 12 frees, 81,652 bytes allocated
+==2898313== 
+==2898313== All heap blocks were freed -- no leaks are possible
+==2898313== 
+==2898313== For lists of detected and suppressed errors, rerun with: -s
+==2898313== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+```
+
+As you can see, if your code is implemented correctly, you should get zero errors and valgrind will report no memory leaks.
+
+Note: if the runval.sh script you checked out is not an executable file, then you need to run "chmod +x runval.sh" to change it to an executable file.
+
 <!-- - You are recommended to do this: let child threads call pthread_exit() to exit.
   parent thread itself doesn't need to call pthread_exit(). This is a recommendation
   but is not a requirement, however, later on when you work on the Cadillac (threads library) project,
@@ -161,15 +229,13 @@ and show timing results for the parallel mergesort when the number of levels is 
 
 ## Submission  
 
-Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/graded.
-All grading will be executed on onyx.boisestate.edu.
-Submissions that fail to compile on onyx will not be graded.
+Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/graded. All grading will be executed on onyx.boisestate.edu. Submissions that fail to compile on onyx will not be graded.
 
 ## Grading Rubric (for Undergraduate students)
 
 - [70 pts] Make concurrent
-  - [40 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [20 pts] test-mazda.c accepts a number levels as a command line argument
+  - [30 pts] Your sorting runs correctly for one single thread - i.e., cutoff is 0.
+  - [30 pts] You got a speedup of at least 2 with 4 or more cores 
   - [10 pts] Correctly creates new threads
 - [10 pts] Compiler warnings **ALL files**
   - Each compiler warning will result in a 3 point deduction.
