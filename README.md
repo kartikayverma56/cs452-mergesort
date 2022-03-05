@@ -13,7 +13,7 @@ In this assignment, we will implement a multi-threaded version of the merge sort
 Read these chapters carefully in order to prepare yourself for this project.
 
 - [Intro to Threads](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf)
-- [Threads API](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-api.pdf)
+- [Threads API](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-api.pdf) (**WARNING**: for this assignment, reading 27.1 and 27.2 is enough; reading 27.3 may mislead you to the wrong track.)
 
 ## Background
 
