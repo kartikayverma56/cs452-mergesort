@@ -277,6 +277,6 @@ All files necessary for compilation and testing need to be submitted, this inclu
 
 For those who need more practices in C programming, you are recommended to solve these three problems using the merge sort algorithm.
 
-Leetcode Problem 88 - Merge Sorted Array<br/>
-Leetcode Problem 912 - Sort an Array<br/>
-Leetcode Problem 148 - Sort List
+[Leetcode Problem 88 - Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)<br/>
+[Leetcode Problem 912 - Sort an Array](https://leetcode.com/problems/sort-an-array/)<br/>
+[Leetcode Problem 148 - Sort List](https://leetcode.com/problems/sort-list/)
