@@ -1,12 +1,19 @@
 # Overview
 
-In this assignment, we will implement a multithreaded version of the merge sort algorithm using the pthread library. Your code will then be used to sort a randomly-generated array. Note this is NOT a kernel project, and you should just develop your code on onyx, not in your virtual machine. Submissions fail to compile or run on onyx, will not be graded.
+In this assignment, we will implement a multi-threaded version of the merge sort algorithm (known as parallel merge sort) using the pthread library. Your code will then be used to sort a randomly-generated array. Note this is NOT a kernel project, and you should just develop your code on onyx, not in your virtual machine. Submissions fail to compile or run on onyx, will not be graded.
 
 ## Learning Objectives
 
 - To gain more experience writing concurrent code.
 - See how multithreading improves program performance.
 - Explore the pthread library.
+
+## Book References
+
+Read these chapters carefully in order to prepare yourself for this project.
+
+- [Intro to Threads](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf)
+- [Threads API](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-api.pdf)
 
 ## Background
 
@@ -20,12 +27,7 @@ Continue this same example, the following picture shows what your program flow s
 
 ![alt text](flow.png "Program Flow")
 
-## Book References
-
-Read these chapters carefully in order to prepare yourself for this project.
-
-- [Intro to Threads](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-intro.pdf)
-- [Threads API](http://pages.cs.wisc.edu/~remzi/OSTEP/threads-api.pdf)
+Several functions are used in the above picture. Some of them are API functions you can call, others are the functions you need to implement. Read the next few sections of this README to understand more details about these functions.
 
 ## APIs
 
@@ -55,7 +57,7 @@ void free(void *ptr);
 
 You may need to call **malloc**() to allocate memory in your **buildArgs**() function for the argument you are going to build. You can then free such memory chunks in your **parallel_mergesort**().
 
-You may have heard of **pthread_exit**(), do not use it for this assignment, otherwise valgrind will report memory blocks "still reachable" issues. valgrind has trouble to track variables used in **pthread_exit**().
+You may have heard of **pthread_exit**(), do not use it for this assignment, otherwise valgrind will report memory blocks "still reachable" issues. valgrind has trouble to track variables used in **pthread_exit**(). In this assignment, instead of using **pthread_exit**(), you can just return NULL to exit your thread.
 
 ## Starter Code
 
@@ -122,6 +124,12 @@ int *B;
 A typical merge sort algorithm requires some extra storage, which is an array, whose size is the same as the original array - the array you want to sort. Watch this video to understand why such an extra array is needed: [Algorithms: Merge Sort](https://www.youtube.com/watch?v=KF2j-9iSf4Q&t=372s).
 
 ```c
+int cutoff;
+```
+
+This global variable is described in the Background section of this README. The word cutoff means when the number of levels reaches this *cutoff* value we cut off new thread generation.
+
+```c
 struct argument {
     int left;
     int right;
@@ -129,15 +137,8 @@ struct argument {
 };
 ```
 
-```c
-int cutoff;
-```
 
-The multithreaded merge sort algorithm essentially is a binary tree. 
-
-Your program should limit the number of levels it
-uses via a command line argument: number of levels before cutting off new thread
-generation. You must get a speedup of at least 2 with 4 or more cores
+You must get a speedup of at least 2 with 4 or more cores
 to get full credit on this project. Use n = 100,000,000 elements for
 your testing.
 
