@@ -60,7 +60,7 @@ In the next section you will find out what these two functions should do.
 
 ## Specification
 
-The testing program will show timing results for the single thread mergesort (also known as serial mergesort or sequential mergesort) when the number of levels is 0, and show timing results for the parallel mergesort when the number of levels is larger than 0. Compared to serial mergesort, your parallel mergesort must get a speedup of at least 2 on onyx. Use n = 100,000,000 elements for your testing.
+The testing program will show timing results for the single thread merge sort (also known as serial merge sort or sequential merge sort) when the number of levels is 0, and show timing results for the parallel merge sort when the number of levels is larger than 0. Compared to serial merge sort, your parallel merge sort must get a speedup of at least 2 on onyx. Use n = 100,000,000 elements for your testing.
 
 You are required to implement the following 4 functions:
 
@@ -68,7 +68,7 @@ You are required to implement the following 4 functions:
 void mergesort(int left, int right);
 ```
 
-This function does the mergesort, with one single thread. You should write this **mergesort**() function as a recursive function.
+This function does the merge sort, with one single thread. You should write this **mergesort**() function as a recursive function.
 
 ```c
 void merge(int leftstart, int leftend, int rightstart, int rightend);
@@ -88,9 +88,9 @@ This **parallel_mergesort**() function calls **mergesort**() as its base case. Y
 struct argument * buildArgs(int left, int right, int level);
 ```
 
-The only reason we need this function, is because **pthread_create**() specifies that its **start_routine**() only allows one void \* type pointer, which means **parallel_mergesort**() will only accept one void \* type pointer, yet the information we want to pass is more than just one variable. Thus we can work around this by creating a struct variable and pass its address into **parallel_mergesort**(). That is the purpose of this **buildArgs** function, which basically prepares the argument for **parallel_mergesort**(). 
+The only reason we need this function, is because **pthread_create**() specifies that its **start_routine**() only allows one void \* type pointer, which means **parallel_mergesort**() will only accept one void \* type pointer, yet the information we want to pass is more than just one variable. Thus we can work around this by creating a struct variable and passing its address into **parallel_mergesort**(). That is the purpose of this **buildArgs** function, which basically prepares the argument for **parallel_mergesort**(). 
 
-The definition of *struct argument*, as well as the meaning of each of the parameter to **buildArgs**(), will be described later in this README.
+The definition of *struct argument*, as well as the meaning of each of the parameters to **buildArgs**(), will be described later in this README.
 
 ## APIs
 
@@ -99,7 +99,7 @@ I used the following APIs.
 ```c
 int pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine) (void *), void *arg);
 ```
-According to its man page, the **pthread_create**() function creates "a new thread in the calling process.  The new thread starts execution by invoking start\_routine(); arg is passed as the sole argument of start\_routine()". You can create a *struct pthread_t* instance and pass its address into **pthread_create**(), as its first parameter, which represents the thread you are going to create. The second parameter *attr* describes some attributes of this thread, and for this assignment, you can juse use NULL, which indicates the thread is created with default attributes. The third parameter, *start_routine*(), is the function you want the newly created thread to run, this function must take one and only one parameter, which must be a *void* \* type pointer. This function returns a *void* \* type pointer. The four parameter is the argument, which is also known as the parameter, of this function - the one represented by the third parameter. For obvious reason, *arg* is a *void* \* type pointer.
+According to its man page, the **pthread_create**() function creates "a new thread in the calling process.  The new thread starts execution by invoking start\_routine(); arg is passed as the sole argument of start\_routine()". You can create a *struct pthread_t* instance and pass its address into **pthread_create**(), as its first parameter, which represents the thread you are going to create. The second parameter *attr* describes some attributes of this thread, and for this assignment, you can just use NULL, which indicates the thread is created with default attributes. The third parameter, *start_routine*(), is the function you want the newly created thread to run, this function must take one and only one parameter, which must be a *void* \* type pointer. This function returns a *void* \* type pointer. The four parameter is the argument, which is also known as the parameter, of this function - the one represented by the third parameter. For obvious reason, *arg* is a *void* \* type pointer.
 
 ```c
 int pthread_join(pthread_t thread, void **retval);
@@ -138,7 +138,7 @@ int *B;
 
 A typical merge sort algorithm requires some extra storage, which is an array, whose size is the same as the original array - the array you want to sort. Watch this video to understand why such an extra array is needed: [Algorithms: Merge Sort](https://www.youtube.com/watch?v=KF2j-9iSf4Q&t=372s).
 
-We define both array *A* and array *B* as as a global array, so that you do not need to pass them as a parameter to your functions. Instead, you can just use them in any of your functions.
+We define both array *A* and array *B* as a global array, so that you do not need to pass them as a parameter to your functions. Instead, you can just use them in any of your functions.
 
 ```c
 int cutoff;
@@ -202,7 +202,7 @@ Sorting 100000000 elements took 2.27 seconds.
 Sorting 100000000 elements took 2.33 seconds.
 ```
 
-As you can see, as we increase the number of levels, we can see a clear performance gain. Once again, the requirement is: compared to serial mergesort (which is when the number of levels is 0), your parallel mergesort (which is when the number of levels is larger than 0) must get a speedup of at least 2 on onyx. Use n = 100,000,000 elements for your testing.
+As you can see, as we increase the number of levels, we can see a clear performance gain. Once again, the requirement is: compared to serial merge sort (which is when the number of levels is 0), your parallel merge sort (which is when the number of levels is larger than 0) must get a speedup of at least 2 on onyx. Use n = 100,000,000 elements for your testing.
 
 You can also see, once the number of levels reaches 5, you will not get more performance gain. At that point, the number of threads is no longer the bottleneck of this program, and therefore increasing the number of levels, which will accordingly increase the number of threads, will not help much.
 
@@ -284,7 +284,7 @@ All files necessary for compilation and testing need to be submitted, this inclu
 
 ## Related Exercises
 
-For those who need more practices in C programming, you are recommended to solve these three problems using the merge sort algorithm.
+For those who need more practice in C programming, you are recommended to solve these three problems using the merge sort algorithm.
 
 [Leetcode Problem 88 - Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)<br/>
 [Leetcode Problem 912 - Sort an Array](https://leetcode.com/problems/sort-an-array/)<br/>
