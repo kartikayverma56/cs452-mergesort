@@ -1,2 +1,2 @@
 #!/bin/bash
-valgrind --leak-check=full ./test-mazda 10000 1
+valgrind --leak-check=full ./test-mergesort 10000 1

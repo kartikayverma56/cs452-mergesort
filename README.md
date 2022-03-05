@@ -67,7 +67,9 @@ xxx
 
 You will be modifying the xxx.c file. You should not modify the xxx.h file.
 
-To run the start code, you just type make and run
+A testing program is provided in the starter code, called 
+
+To run the starter code, you just type make and run
 
 xxx
 
