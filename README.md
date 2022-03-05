@@ -153,7 +153,7 @@ struct argument {
     int level;
 };
 ```
-This is the argument we plan to pass to **parallel_mergesort**(). We call **buildArgs**() to build an instance of *struct argument*. In this struct, the field *left* represents the left index in the array, the *right* field represents the right index array. The field *level* represents the current level. To explain this better, let us once again use the following two lines as an example:
+This is the argument we plan to pass to **parallel_mergesort**(). We call **buildArgs**() to build an instance of *struct argument*. In this struct, the field *left* represents the leftmost index of the array, the *right* field represents the rightmost index of the array. The field *level* represents the current level. To explain this better, let us once again use the following two lines as an example:
 
 ```c
 	struct argument *arg=buildArgs(0, n-1, 0);
