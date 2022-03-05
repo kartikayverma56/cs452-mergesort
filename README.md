@@ -235,8 +235,7 @@ Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/grade
 
 - [70 pts] Make concurrent
   - [30 pts] Your sorting runs correctly for one single thread - i.e., cutoff is 0.
-  - [30 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [10 pts] Correctly creates new threads
+  - [40 pts] You got a speedup of at least 2 on onyx.
 - [10 pts] Compiler warnings **ALL files**
   - Each compiler warning will result in a 3 point deduction.
   - You are not allowed to suppress warnings
