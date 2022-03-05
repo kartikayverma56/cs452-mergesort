@@ -236,10 +236,9 @@ Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/grade
 - [70 pts] Make concurrent
   - [30 pts] Your sorting runs correctly for one single thread - i.e., cutoff is 0.
   - [40 pts] You got a speedup of at least 2 on onyx.
-- [10 pts] Compiler warnings **ALL files**
+- [10 pts] Compiler warnings
   - Each compiler warning will result in a 3 point deduction.
   - You are not allowed to suppress warnings
-  - You must build with the flags ```-Wall -Wextra -Wpointer-arith -Wstrict-prototypes -std=gnu89```
 - [10 pts] Valgrind reports no memory leaks or read/write errors
   - As reported by **runval.sh**
   - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
