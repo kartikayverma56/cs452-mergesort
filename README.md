@@ -231,7 +231,7 @@ Note: if the runval.sh script you checked out is not an executable file, then yo
 
 Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/graded. All grading will be executed on onyx.boisestate.edu. Submissions that fail to compile on onyx will not be graded.
 
-## Grading Rubric (for Undergraduate students)
+## Grading Rubric (for Undergraduate Students and Graduate Students)
 
 - [70 pts] Functional Requirement:
   - [30 pts] Your sorting runs correctly for one single thread - i.e., cutoff is 0.
