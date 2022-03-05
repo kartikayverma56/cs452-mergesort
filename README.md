@@ -88,7 +88,7 @@ This **parallel_mergesort**() function calls **mergesort**() as its base case. Y
 struct argument * buildArgs(int left, int right, int level);
 ```
 
-The only reason we need this function, is because **pthread_create**() specifies that its **start_routine**() only allows one void \* type pointer, which means **parallel_mergesort**() will only accept one void \* type pointer, yet the information we want to pass is more than just a variable. Thus we can work around this by creating a struct variable and pass its address into **parallel_mergesort**(). That is the purpose of this **buildArgs** function, which basically prepares the argument for **parallel_mergesort**(). 
+The only reason we need this function, is because **pthread_create**() specifies that its **start_routine**() only allows one void \* type pointer, which means **parallel_mergesort**() will only accept one void \* type pointer, yet the information we want to pass is more than just one variable. Thus we can work around this by creating a struct variable and pass its address into **parallel_mergesort**(). That is the purpose of this **buildArgs** function, which basically prepares the argument for **parallel_mergesort**(). 
 
 The definition of *struct argument*, as well as the meaning of each of the parameter to **buildArgs**(), will be described later in this README.
 
@@ -124,19 +124,21 @@ You may have heard of **pthread_exit**(), do not use it for this assignment, oth
 
 ## Global Variables and Pre-defined Data Structures
 
-The starter code defines the following global variables, in xxx.h. Once again, do not modify xxx.h.
+The starter code defines the following global variables, in mergesort.h. Once again, do not modify mergesort.h.
 
 ```c
 int *A;
 ```
 
-A represents the array you are going to sort. Each time you run the test program, A will point to a randomly-generated array. How do you know the size of this array? The size of this array is specified by the user who runs the test program. The user provides a command-line argument to specify the size, which is called *n* in the test program, and then *n-1* will be passed to your **buildArgs**() function.
+*A* represents the array you are going to sort. Each time you run the test program, *A* will point to a randomly-generated array. How do you know the size of this array? The size of this array is specified by the user who runs the test program. The user provides a command-line argument to specify the size, which is called *n* in the test program, and then *n-1* will be passed to your **buildArgs**() function.
 
 ```c
 int *B;
 ```
 
 A typical merge sort algorithm requires some extra storage, which is an array, whose size is the same as the original array - the array you want to sort. Watch this video to understand why such an extra array is needed: [Algorithms: Merge Sort](https://www.youtube.com/watch?v=KF2j-9iSf4Q&t=372s).
+
+We define both array *A* and array *B* as as a global array, so that you do not need to pass them as a parameter to your functions. Instead, you can just use them in any of your functions.
 
 ```c
 int cutoff;
