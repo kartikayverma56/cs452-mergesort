@@ -49,7 +49,7 @@ Usage: ./test-mergesort <input size> <cutoff level> <seed>
 Sorting 100 elements took 0.00 seconds.
 ```
 
-As you can see, this testing program takes 3 parameters. The first parameter is the size of the array, if you type 100, then the testing program will create an array with 100 random-generated elements. The second parameter is the cutoff value. The third parameter is a random seed, you can provide any number, with a different seed number, the testing program will create a different array. In the testing program, the size of the array is denoted as *n*, and the testing program will call your functions like this:
+As you can see, this testing program takes 3 parameters. The first parameter is the size of the array, if you type 100, then the testing program will create an array with 100 randomly-generated elements. The second parameter is the cutoff value. The third parameter is a random seed, you can provide any number, with a different seed number, the testing program will create a different array. In the testing program, the size of the array is denoted as *n*, and the testing program will call your functions like this:
 
 ```c
 	struct argument *arg=buildArgs(0, n-1, 0);
