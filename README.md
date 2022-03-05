@@ -1,6 +1,6 @@
 # Overview
 
-In this project, we will implement a multithreaded version of the merge sort algorithm using the pthread library. Your code will then be used to sort a randomly-generated array. Note this is NOT a kernel project, and you should just develop your code on onyx, not in your virtual machine. Submissions fail to compile or run on onyx, will not be graded.
+In this assignment, we will implement a multithreaded version of the merge sort algorithm using the pthread library. Your code will then be used to sort a randomly-generated array. Note this is NOT a kernel project, and you should just develop your code on onyx, not in your virtual machine. Submissions fail to compile or run on onyx, will not be graded.
 
 ## Learning Objectives
 
@@ -10,9 +10,14 @@ In this project, we will implement a multithreaded version of the merge sort alg
 
 ## Background
 
-The classic and famous merge sort algorithm is an illustration of the divide-and-conquer idea.
+The classic and famous merge sort algorithm is an illustration of the divide-and-conquer idea. Parallel merge sort takes such an idea to the next level. The basic idea of parallel merge sort is demonstrated as below in this picture, using an example of an array whose size is 10,000. Although in this assignment we do not store any tree in our program, the idea itself sounds like we are dealing with a binary tree. We keep dividing the array, and create new threads to handle the divided smaller arrays, which we will call them as the subarrays. In binary tree terminology, there is a term called level. The node at the very top is at level 0. Its two children are located at level 1, and its four grandchildren are located at level 2, etc.
 
 ![alt text](example.png "Example")
+
+The idea of parallel merge sort is, starting from level 0, we create two new threads, each handles half of the array (of the current node). We repeat such a process so as to extend the binary tree to the next level. As such, we will soon get to level 1, level 2, level 3, level 4, etc. In this assignment, we allow users to specify how many levels they want us to go, and the starter code therefore defines a global variable called *cutoff*, whose value is passed to the program by the user from the command line. The above picture shows an example of when the *cutoff* is specified as 2.
+
+Continue this same example, the following picture shows what your program flow should look like.
+
 ![alt text](flow.png "Program Flow")
 
 ## Book References
