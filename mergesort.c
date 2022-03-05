@@ -23,6 +23,7 @@ void * parallel_mergesort(void *arg){
 
 /* we build the argument for the parallel_mergesort function. */
 struct argument * buildArgs(int left, int right, int level){
+		return NULL;
 }
 
 /* vim: set ts=4: */
