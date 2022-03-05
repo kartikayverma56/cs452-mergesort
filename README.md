@@ -80,7 +80,7 @@ In a typical merge sort algorithm, the **mergesort**() function will eventually 
 void * parallel_mergesort(void *arg);
 ```
 
-This **parallel_mergesort**() function calls **mergesort**() as its base case. You are highly recommended to write this **parallel_mergesort**() recursively, using the pthread library functions. Note: the term recursion in the context of pthread, is slightly different from the term recursion you usually see. In the above **mergesort**() function, you call **mergesort**(), that is the typical recursion scenario you see in other recursive programs. In your **parallel_mergesort**(), you do not call **parallel_mergesort**() directly, instead, you call **pthread_create**(), which will then call **parallel_mergesort**(). In other words, in **mergesort**(), you call **mergesort**() directly, in **parallel_mergesort**(), you call **parallel_mergesort** indirectly.
+This **parallel_mergesort**() function calls **mergesort**() as its base case. You are highly recommended to write this **parallel_mergesort**() recursively, using the pthread library functions. Note: the term recursion in the context of pthread, is slightly different from the term recursion you usually see. In the above **mergesort**() function, you call **mergesort**(), that is the typical recursion scenario you see in other recursive programs. In your **parallel_mergesort**(), you do not call **parallel_mergesort**() directly, instead, you call **pthread_create**(), which will then call **parallel_mergesort**(). In other words, in **mergesort**(), you call **mergesort**() directly, in **parallel_mergesort**(), you call **parallel_mergesort**() indirectly.
 
 **pthread_create**() will be explained in the next section.
 
