@@ -231,6 +231,10 @@ Note: if the runval.sh script you checked out is not an executable file, then yo
 
 Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/graded. All grading will be executed on onyx.boisestate.edu. Submissions that fail to compile on onyx will not be graded.
 
+## Project Layout
+
+All files necessary for compilation and testing need to be submitted, this includes source code files, header files, the bash script, and Makefile. The structure of the submission folder should be the same as what was given to you.
+
 ## Grading Rubric (for Undergraduate Students and Graduate Students)
 
 - [70 pts] Functional Requirement:
