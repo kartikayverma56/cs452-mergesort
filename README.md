@@ -233,18 +233,20 @@ Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/grade
 
 ## Grading Rubric (for Undergraduate students)
 
-- [70 pts] Make concurrent
+- [70 pts] Functional Requirement:
   - [30 pts] Your sorting runs correctly for one single thread - i.e., cutoff is 0.
   - [40 pts] You got a speedup of at least 2 on onyx.
-- [10 pts] Compiler warnings
+- [10 pts] Compiler warnings:
   - Each compiler warning will result in a 3 point deduction.
   - You are not allowed to suppress warnings
-- [10 pts] Valgrind reports no memory leaks or read/write errors
+- [10 pts] Valgrind reports no memory leaks or read/write errors:
   - As reported by **runval.sh**
   - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
     byte will result in a zero for this section. There is no partial
     credit for this section.
-- [10 pts] Documentation: README.md file (replace this current README.md with a new one using the template. Do not check in this current README.)
+- [10 pts] Documentation: 
+  - README.md file: replace this current README.md with a new one using the template. Do not check in this current README.
+  - You are required to fill in every section of the README template, missing 1 section will result in a 2-point deduction.
 
 <!-- ## Grading Rubric (for Graduate students)
 
