@@ -56,7 +56,7 @@ As you can see, this testing program takes 3 parameters. The first parameter is 
 	parallel_mergesort(arg);
 ```
 
-In next section you will find out what these two functions should do.
+In the next section you will find out what these two functions should do.
 
 ## Specification
 
