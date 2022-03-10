@@ -1,6 +1,3 @@
-#ifndef __MAZDA_H
-#define __MAZDA_H
-
 #define TRUE 1
 #define FALSE 0
 
@@ -24,14 +21,12 @@ void * parallel_mergesort(void *arg);
 struct argument * buildArgs(int left, int right, int level);
 
 /* the number of levels of threads, specified by the user */
-int cutoff;
+extern int cutoff;
 
 /* the array we want to sort */
-int *A;
+extern int *A;
 
 /* when merge, we need a temp array (named B) to temporarily store elements of the original array */
-int *B;
-
-#endif //__MAZDA_H
+extern int *B;
 
 /* vim: set ts=4: */

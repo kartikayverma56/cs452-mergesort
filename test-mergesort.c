@@ -7,7 +7,14 @@
 #include <error.h>
 #include "mergesort.h"
 
-int cutoff=0;
+/* the number of levels of threads, specified by the user */
+int cutoff = 0;
+
+/* the array we want to sort */
+int *A;
+
+/* when merge, we need a temp array (named B) to temporarily store elements of the original array */
+int *B;
 
 // function prototypes
 int check_if_sorted(int A[], int n);
