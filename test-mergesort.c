@@ -119,7 +119,7 @@ void printA(void){
 /* this function prints B, but we only print the first 100 elements */
 void printB(void){
 	int i;
-	printf("Array tmp:");
+	printf("Array B:");
 	/* FIXME: we assume the size of B is at least 100, and this will fail if it is lower than 100 */
 	for(i=0;i<100;i++){
 		printf(" %d",B[i]);
