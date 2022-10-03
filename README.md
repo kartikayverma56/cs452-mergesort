@@ -240,7 +240,7 @@ Note: if the runval.sh script you checked out is not an executable file, then yo
 
 ## Submission  
 
-Due Date: 23:59pm, March 15th, 2022. Late submissions will not be accepted/graded. All grading will be executed on onyx.boisestate.edu. Submissions that fail to compile on onyx will not be graded.
+Due Date: 23:59pm, October 13th, 2022. Late submissions will not be accepted/graded. All grading will be executed on onyx.boisestate.edu. Submissions that fail to compile on onyx will not be graded.
 
 ## Project Layout
 
@@ -260,27 +260,8 @@ All files necessary for compilation and testing need to be submitted, this inclu
     byte will result in a zero for this section. There is no partial
     credit for this section.
 - [10 pts] Documentation: 
-  - README.md file: replace this current README.md with a new one using the template. Do not check in this current README.
+  - README.md file (rename this current README file to README.orig and rename the README.template to README.md).
   - You are required to fill in every section of the README template, missing 1 section will result in a 2-point deduction.
-
-<!-- ## Grading Rubric (for Graduate students)
-
-- [15 pts] Make concurrent
-  - [5 pts] You got a speedup of at least 2 with 4 or more cores 
-  - [5 pts] test-mazda.c accepts a number of threads (or a number of levels) as a command line argument
-  - [5 pts] Correctly creates new threads
-- [15 pts] Implementation analysis (speedup.pdf)
-  - Score will reflect the quality of the analysis.
-- [10 pts] Compiler warnings **ALL files**
-  - Each compiler warning will result in a 3 point deduction.
-  - You are not allowed to suppress warnings
-  - You must build with the flags ```-Wall -Wextra -Wpointer-arith -Wstrict-prototypes -std=gnu89```
-- [5 pts] Valgrind reports no memory leaks or read/write errors
-  - As reported by **runval.sh**
-  - This is a **PASS/FAIL** score. 1 read/write error or leaking 1
-    byte will result in a zero for this section. There is no partial
-    credit for this section.
-- [5 pts] Documentation: README.md file (replace this current README.md with a new one using the template. Do not check in this current README.) -->
 
 ## Related Exercises
 
